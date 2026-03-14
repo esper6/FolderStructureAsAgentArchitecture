@@ -1,0 +1,9 @@
+# Claude Code local settings
+.claude/settings.local.json
+
+# Stage output files (run artifacts — not part of the workspace definition)
+stages/*/output/*
+!stages/*/output/.gitkeep
+
+# Source PDF (large binary — link to it instead)
+*.pdf
