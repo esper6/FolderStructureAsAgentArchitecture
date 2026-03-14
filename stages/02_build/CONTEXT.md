@@ -57,8 +57,32 @@ Generate these files in this order:
 - How to run the pipeline each time (fill in the intake, then run stages in order)
 - What they get at the end
 - File table: every file and what it's for
-- Skills section: slam dunk skills listed with one-line descriptions;
-  conditional skills as a table with the condition and how to add them
+- **Skills section** — required, must include all three of:
+
+  1. A table of every slam dunk skill using `/skill-name` syntax:
+     | Skill | What it does |
+     |---|---|
+     | `/run-stage [N]` | ... |
+     | `/pipeline-status` | ... |
+     | `/reset-stage [N]` | ... |
+     | `/[domain-skill]` | ... |
+
+  2. A **Typical flow** block showing the exact slash commands in order:
+     ```
+     /run-stage 1    → review [output file], edit if needed
+     /run-stage 2    → ...
+     /write-workspace
+     ```
+
+  3. A **If something needs rework** block:
+     ```
+     /reset-stage [N]   → edit [intake or previous output], then re-run
+     /run-stage [N]
+     ```
+
+  For conditional skills: a separate table with the condition and the instruction
+  "To add: create `.claude/skills/[name]/SKILL.md` and ask your agent to generate it
+  using the domain skill template, or copy it from the MWP skills catalog."
 
 **`workspace/CLAUDE.md`** — L0
 - What this is (goal statement from the proposal)

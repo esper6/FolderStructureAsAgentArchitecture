@@ -33,10 +33,12 @@ inputs, producing content — run this pipeline and find out.
 **Step 1.** Open `setup/goal-intake.md` and answer the questions. Be as brief or detailed
 as you like. You can leave gaps — Stage 1 will make assumptions and flag them.
 
-**Step 2.** Tell your AI agent to run Stage 1.
+**Step 2.** Run Stage 1 — either with the skill or by prompting your agent directly.
 
-> "Please run Stage 1. Read CLAUDE.md first, then CONTEXT.md, then follow
->  the contract in stages/01_assess_design/CONTEXT.md."
+> With the skill: `/run-stage 1`
+>
+> Without the skill: "Please run Stage 1. Read CLAUDE.md first, then CONTEXT.md, then follow
+> the contract in stages/01_assess_design/CONTEXT.md."
 
 Stage 1 will assess whether MWP is a good fit for your goal. If it is, it proposes
 a workflow design — the stages, the reference files, and the skills for your new workspace.
@@ -58,13 +60,13 @@ Only `workflow-proposal.md` continues to Stage 2. Edit it freely before proceedi
 
 **Step 4.** Run Stage 2 to generate the workspace files.
 
-> "Please run Stage 2. Follow the contract in stages/02_build/CONTEXT.md."
+> `/run-stage 2`
 
 Stage 2 produces a `workspace-manifest.md` — every file in your new workspace in one place.
 
 **Step 5.** Run Stage 3 to validate the manifest before anything is written to disk.
 
-> "Please run Stage 3. Follow the contract in stages/03_validation/CONTEXT.md."
+> `/run-stage 3`
 
 Stage 3 checks the manifest for broken references, wrong layer labels, missing skills,
 incomplete configure.md, and other issues — and fixes them in place. When it's clean,
@@ -87,6 +89,35 @@ and suggestions for what might work better.
 
 ---
 
+## Skills
+
+These slash commands are available in Claude Code. Type them directly in the chat.
+
+| Skill | When to use it |
+|---|---|
+| `/new-run` | Starting a new goal — clears all stage outputs and prompts you to update the intake |
+| `/run-stage [1\|2\|3]` | Run a specific stage (or omit the number to run the next pending one) |
+| `/pipeline-status` | Check which stages are done and what comes next |
+| `/reset-stage [1\|2\|3]` | Clear one stage's output to re-run it without clearing everything else |
+| `/write-workspace` | Write the validated manifest to actual files on disk |
+
+**Typical flow for a new goal:**
+```
+/new-run        → update setup/goal-intake.md
+/run-stage 1    → review stages/01_assess_design/output/workflow-proposal.md
+/run-stage 2    → (review manifest if you want)
+/run-stage 3    → validate and fix
+/write-workspace
+```
+
+**If something needs rework:**
+```
+/reset-stage 1  → edit goal-intake.md or the previous output, then re-run
+/run-stage 1
+```
+
+---
+
 ## Files in this workspace
 
 | File | What it is |
@@ -97,4 +128,5 @@ and suggestions for what might work better.
 | `stages/02_build/` | Generates all workspace files from the approved design |
 | `stages/03_validation/` | Validates the manifest and fixes issues before writing to disk |
 | `_config/mwp-conventions.md` | The rules that govern all MWP workspaces |
-| `.claude/skills/write-workspace/` | Skill: writes the manifest to actual files on disk |
+| `_config/skills-catalog.md` | Skills available to recommend and generate for new workspaces |
+| `.claude/skills/` | Slash commands for running and managing this workspace |
