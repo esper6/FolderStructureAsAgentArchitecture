@@ -11,11 +11,9 @@ You can leave sections blank; Stage 1 will make reasonable assumptions and note 
      Example: "I want to produce a weekly status report for my team from our project notes." -->
 
 
-
 ## What do you start with?
 <!-- What raw material kicks off the work each time?
      Example: "A rough topic idea." / "A folder of meeting transcripts." / "A client brief." -->
-
 
 
 ## What does a good output look like?
@@ -23,17 +21,14 @@ You can leave sections blank; Stage 1 will make reasonable assumptions and note 
      Example: "A 600-word article in my voice, ready to post to Substack." -->
 
 
-
 ## How often does this run?
 <!-- How regularly does this pipeline run, and what triggers it?
      Example: "Once a week, every Monday." / "Once per client project." / "On demand." -->
 
 
-
 ## Who does this work, and who receives the output?
 <!-- Who runs this pipeline? Who uses or reads what it produces?
      Example: "I run it, my team reads the output." / "A junior analyst runs it for the VP." -->
-
 
 
 ## How comfortable are you with technical tools?
@@ -45,15 +40,12 @@ You can leave sections blank; Stage 1 will make reasonable assumptions and note 
      - Very comfortable — I'm a developer or work closely with one. -->
 
 
-
 ## Any constraints or preferences?
 <!-- Tools to use or avoid, tone, format, length, platform, audience expectations.
      Example: "Must be in plain English, no jargon. Output goes into a PowerPoint." -->
 
 
-
 ## Examples or references
 <!-- Anything that shows what good output looks like, or a similar workflow you've seen.
      Optional but helpful. Links, file names, or a description all work. -->
-
 

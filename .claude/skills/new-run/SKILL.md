@@ -14,6 +14,9 @@ Reset this workspace for a new goal description.
    fresh? This cannot be undone."
 4. If confirmed:
    - Delete all files in each output/ folder except .gitkeep
+   - Reset setup/goal-intake.md to a blank template by replacing every answer
+     (any non-comment, non-header text after a `##` section) with an empty line,
+     leaving all headings, comments, and structure intact
 5. Tell the user:
-   "All outputs cleared. Update setup/goal-intake.md with your new goal,
-   then run /run-stage 1 to begin."
+   "All outputs cleared and goal-intake.md reset. Fill in setup/goal-intake.md
+   with your new goal, then run /run-stage 1 to begin."
